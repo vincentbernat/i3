@@ -995,7 +995,7 @@ bool load_keymap(void) {
 
 /*
  * Returns a list of buttons that should be grabbed on a window.
- * This list will always contain 1–3, all higher buttons will only be returned
+ * This list will always contain 1–5, all higher buttons will only be returned
  * if there is a whole-window binding for it on some window in the current
  * config.
  * The list is terminated by a 0.
@@ -1008,10 +1008,12 @@ int *bindings_get_buttons_to_grab(void) {
     int buffer[num_max];
     int num = 0;
 
-    /* We always return buttons 1 through 3. */
+    /* We always return buttons 1 through 5. */
     buffer[num++] = 1;
     buffer[num++] = 2;
     buffer[num++] = 3;
+    buffer[num++] = 4;
+    buffer[num++] = 5;
 
     Binding *bind;
     TAILQ_FOREACH (bind, bindings, bindings) {
